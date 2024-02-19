@@ -5,6 +5,7 @@ pipeline {
             steps {
                 git branch: 'main', credentialsId: '30b47fd2-debb-42b6-b20a-316601a40562', 
                 url: 'https://github.com/john2417/SE.git'
+                echo "end clone"
             }
         }
         stage('build'){
