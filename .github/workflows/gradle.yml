@@ -13,6 +13,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+defaults:
+  run:
+    working-directory: test
+
+
 jobs:
   build:
 
@@ -35,7 +40,6 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
-      working-directory: test
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
@@ -61,7 +65,6 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        working-directory: test
 
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
