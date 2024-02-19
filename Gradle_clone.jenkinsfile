@@ -12,7 +12,7 @@ pipeline {
             steps{
              dir('gradle_test')   {
                 sh'''
-                    echo "start app.jar"
+                    echo 'start app.jar'S
                     ./gradlew build
                 '''
              }
