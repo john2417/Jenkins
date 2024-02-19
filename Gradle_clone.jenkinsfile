@@ -1,0 +1,21 @@
+pipeline {
+    agent any 
+    stages {
+        stage('GitHub Repository Clone') { 
+            steps {
+                git branch: 'main', credentialsId: '30b47fd2-debb-42b6-b20a-316601a40562', 
+                url: 'https://github.com/john2417/SE.git'
+            }
+        }
+        stage('build'){
+            steps{
+             dir('gradle_test')   {
+                sh'''
+                    echo "start app.jar"
+                    ./gradlew build
+                '''
+             }
+            }
+        }
+    }
+}
